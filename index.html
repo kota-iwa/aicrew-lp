@@ -2796,7 +2796,7 @@
                                 <div class="form-head__title">お問い合わせ・無料相談</div>
                                 <span class="form-head__note">1 営業日以内に返信</span>
                             </div>
-                            <form class="cta-form" id="cta-contact-form" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST" onsubmit="submitCtaForm(event)">
+                            <form class="cta-form" id="cta-contact-form" action="https://formsubmit.co/ajax/aicrew@c-h.co.jp" method="POST" onsubmit="submitCtaForm(event)">
                                 <div class="form-row">
                                     <div class="form-field">
                                         <label for="form-name">お名前 <span class="required">*</span></label>
@@ -2837,8 +2837,10 @@
                                     <input type="checkbox" id="form-consent" name="consent" required>
                                     <span>個人情報の取り扱いに同意し、AIcrew に関する返信を受け取ることに同意します。</span>
                                 </label>
-                                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                                 <input type="hidden" name="_subject" value="【AIcrew LP】お問い合わせ">
+                                <input type="hidden" name="_template" value="box">
+                                <input type="hidden" name="_captcha" value="false">
                                 <button type="submit" class="form-submit" id="form-submit-btn">
                                     <i class="ph-bold ph-paper-plane-tilt"></i>
                                     <span class="form-submit__label">送信する</span>
@@ -2848,7 +2850,7 @@
                             <div class="form-success" id="cta-form-success" role="status" aria-live="polite">
                                 <div class="form-success__icon"><i class="ph-bold ph-check-circle"></i></div>
                                 <div class="form-success__title">送信ありがとうございました</div>
-                                <div class="form-success__body">内容を確認し、1 営業日以内にご返信いたします。<br>お急ぎの場合は <a href="mailto:shota.h@c-h.co.jp">shota.h@c-h.co.jp</a> または <a href="tel:05030330424">050-3033-0424</a> までご連絡ください。</div>
+                                <div class="form-success__body">内容を確認し、1 営業日以内にご返信いたします。<br>お急ぎの場合は <a href="mailto:aicrew@c-h.co.jp">aicrew@c-h.co.jp</a> または <a href="tel:05030330424">050-3033-0424</a> までご連絡ください。</div>
                             </div>
                             <p class="final-cta__note">※ 導入前のヒアリング・デモは完全無料。平日 10–19 時に対応します。</p>
                         </div>
@@ -2867,7 +2869,7 @@
                 </div>
                 <div class="footer__meta">
                     <strong>C&amp;H Inc.</strong>
-                    <a href="mailto:shota.h@c-h.co.jp">shota.h@c-h.co.jp</a>
+                    <a href="mailto:aicrew@c-h.co.jp">aicrew@c-h.co.jp</a>
                     <a href="tel:05030330424">050-3033-0424</a>
                     <span>&copy; 2026 C&amp;H Inc. All rights reserved.</span>
                 </div>
@@ -2936,11 +2938,6 @@
             const btn = document.getElementById("form-submit-btn");
             const success = document.getElementById("cta-form-success");
 
-            if (form.action.includes("REPLACE_WITH_FORMSPREE_ID")) {
-                alert("送信先が未設定です。お手数ですが shota.h@c-h.co.jp まで直接ご連絡ください。");
-                return false;
-            }
-
             btn.classList.add("is-loading");
 
             try {
@@ -2958,7 +2955,7 @@
                     throw new Error("送信失敗");
                 }
             } catch (err) {
-                alert("送信に失敗しました。お手数ですが shota.h@c-h.co.jp まで直接ご連絡ください。");
+                alert("送信に失敗しました。お手数ですが aicrew@c-h.co.jp まで直接ご連絡ください。");
             } finally {
                 btn.classList.remove("is-loading");
             }

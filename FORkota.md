@@ -9,7 +9,7 @@
 - 公開URL: https://aicrew.c-h.co.jp
 - 目的: AIcrew（EC/D2C向けAIカスタマーサポート）の見込み顧客に「資料DL」「無料相談」のフォーム送信をしてもらう
 - 構造: 1ファイル完結の `index.html`（インラインCSS + JS、合計 約2700行）
-- フォーム送信先: Formspree（現状 `REPLACE_WITH_FORMSPREE_ID` のままなので未稼働）→ 実運用前に Formspree ID を埋める必要あり
+- フォーム送信先: **FormSubmit.co**（`https://formsubmit.co/ajax/aicrew@c-h.co.jp`）→ 受信は `aicrew@c-h.co.jp`
 
 ## 2. プロジェクトの場所
 
@@ -49,7 +49,7 @@
 - バックアップ: 大きな変更前に `index.html.bak.YYYYMMDD` 形式でバックアップが作られる（直近: `index.html.bak.20260510`）
 
 ### 手動でやる必要があること
-- フォーム送信先（Formspree）の本番設定: `index.html` 内の `REPLACE_WITH_FORMSPREE_ID` を実際のFormspree IDに置き換える
+- **FormSubmit 初回確認**: 初めて誰かがフォームから送信したとき、FormSubmit から `aicrew@c-h.co.jp` 宛に「確認メール」が届くので、その中のリンクを 1 度だけクリック → 以降は自動で受信できるようになる
 - 画像差し替え: AI 生成画像（`assets/v2-pop-friendly/`）は仮素材。本番運用時は実テスティモニアル写真に差し替え推奨
 - ドメイン管理: Vercel 側のチームアカウントは別。アクセスできない場合は kota が直接ログイン
 
@@ -118,9 +118,10 @@ CRO評価で以下の改善点が出てる（2026-05-10時点）:
 - file:// プロトコルだと相対パスが効かない場合がある → `python3 -m http.server` でサーバー経由で開く
 - Cmd+Shift+R でハードリロード（キャッシュクリア）
 
-### Q. フォームが送信できない
-- 現状 `REPLACE_WITH_FORMSPREE_ID` が埋まってないため、ボタンを押すとエラーアラートが出る
-- 本番運用前に Formspree でフォーム作成 → IDを埋める
+### Q. フォームが送信できない / メールが届かない
+- 初回送信時は FormSubmit から `aicrew@c-h.co.jp` に **確認メール（Activate your form）** が届く。リンクを 1 度クリックすれば以降自動受信
+- 確認メールが見当たらない: 迷惑メールフォルダもチェック
+- それでも届かない: `https://formsubmit.co/aicrew@c-h.co.jp` を別タブで開いて再アクティベート
 
 ### Q. デザインを「ダークに戻したい」と言われたら
 - メモリに「Pop Friendly路線」が記録されている。ダークに戻すには明示的な指示が必要
@@ -128,6 +129,6 @@ CRO評価で以下の改善点が出てる（2026-05-10時点）:
 
 ## 9. 連絡先
 
-- 問い合わせメール: shota.h@c-h.co.jp（LP内に記載）
+- 問い合わせメール: aicrew@c-h.co.jp（LP内に記載・FormSubmit 受信先）
 - 電話: 050-3033-0424（LP内に記載）
 - 会社: C&H株式会社
